@@ -1,42 +1,29 @@
 <template>
-	<div>
-		<h1>Home page</h1>
-		<el-button type="primary" @click="testSth">test</el-button>
-		<ul>
-			<li><h3 @click="gotoSlot">vslot</h3></li>
-			<li><h3 @click="gotoModel">vmodel</h3></li>
-		</ul>
+	<div id="homePage">
+		<user-info></user-info>
+		<seat-res></seat-res>
+		<room-res></room-res>
 	</div>
 </template>
 
 <script>
-import { login } from "../api/login";
+import userInfo from "./common/userInfo";
+import seatRes from "./common/seatReservation";
+import roomRes from "./common/roomReservation";
 export default {
+	components: { userInfo, seatRes, roomRes },
 	data() {
 		return {};
 	},
-	methods: {
-		testSth() {
-			login().then(res => {
-				console.log("res123:", res);
-			});
-		},
-		gotoSlot() {
-			this.$router.push("/vslot");
-		},
-		gotoModel() {
-			this.$router.push("/vmodel");
-		}
-	}
+	methods: {}
 };
 </script>
 
 <style scoped>
-ul li:hover {
-	color: blue;
-	cursor: pointer;
-}
-ul li {
-	background-color: yellow;
+#homePage {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
 }
 </style>
