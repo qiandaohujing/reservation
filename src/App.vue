@@ -5,17 +5,35 @@
 </template>
 
 <script>
-import axios from "axios";
+	// import axios from "axios";
+	import { getToken } from "./utils/token";
 
-export default {
-	created() {
-		axios
-			.post(
-				"https://www.easy-mock.com/mock/5c34a1dd571e3a7876576640/example/upload"
-			)
-			.then(res => {
-				console.log("res:", res);
-			});
-	}
-};
+	export default {
+		created() {
+			// axios
+			// 	.post(
+			// 		"https://www.easy-mock.com/mock/5c34a1dd571e3a7876576640/example/upload"
+			// 	)
+			// 	.then(res => {
+			// 		console.log("res:", res);
+			// 	});
+		},
+		mounted() {
+			// this.ifLogin();
+		},
+		methods: {
+			ifLogin() {
+				if (!getToken()) {
+					this.$router.push("/login");
+				}
+			}
+		}
+	};
 </script>
+
+<style scoped>
+	#app {
+		width: 100%;
+		height: 100%;
+	}
+</style>

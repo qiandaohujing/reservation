@@ -18,7 +18,7 @@ export default {
 	methods: {
 		testSth() {
 			login().then(res => {
-				console.log("res:", res);
+				console.log("res123:", res);
 			});
 		},
 		gotoSlot() {
