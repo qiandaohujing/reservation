@@ -1,4 +1,4 @@
-# geektime
+# reservation
 
 ## Project setup
 ```

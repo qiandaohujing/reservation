@@ -39,7 +39,7 @@ export default {
 	},
 	data() {
 		return {
-			msg: "hello geektime",
+			msg: "hello reservation",
 			info: "",
 			list: []
 		};
