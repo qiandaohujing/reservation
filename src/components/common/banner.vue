@@ -6,10 +6,10 @@
 					<img src="../../assets/images/seats.png">
 				</div>
 				<div class="right">
-					<div class="top">
-						<img src="../../assets/images/room.png">
+					<div class="top" @click="gotoRoomRes">
+						<img src="../../assets/images/rooms.png">
 					</div>
-					<div class="bottom">
+					<div class="bottom" @click="gotoUserInfo">
 						<img src="../../assets/images/self.png">
 					</div>
 				</div>
@@ -27,8 +27,17 @@
 		methods: {
 			gotoFloor() {
 				this.$router.push({
-					path: "/floor",
-					params: {}
+					path: "/floor"
+				});
+			},
+			gotoRoomRes() {
+				this.$router.push({
+					path: "/roomRes"
+				});
+			},
+			gotoUserInfo() {
+				this.$router.push({
+					path: "/userInfo"
 				});
 			}
 		}

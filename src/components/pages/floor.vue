@@ -2,14 +2,9 @@
 	<div id="floor">
 		<vheader></vheader>
 		<div class="maincontain">
-			<div class="item" @click="gotoSeatRes">
-				<img src="../../assets/images/floor2.png">
-			</div>
-			<div class="item" @click="gotoSeatRes">
-				<img src="../../assets/images/floor3.png">
-			</div>
-			<div class="item" @click="gotoSeatRes">
-				<img src="../../assets/images/floor4.png">
+			<div class="item" v-for="(item, index) in imgList" :key="index">
+				<div class="mask">{{item.value}}</div>
+				<img src="../../assets/images/floor.png" @click="gotoSeatRes(item)">
 			</div>
 		</div>
 		<vfooter></vfooter>
@@ -22,13 +17,19 @@
 	export default {
 		components: { vheader, vfooter },
 		data() {
-			return {};
+			return {
+				imgList: [
+					{ value: "二楼自习区" },
+					{ value: "三楼自习区" },
+					{ value: "四楼自习区" }
+				]
+			};
 		},
 		methods: {
-			gotoSeatRes() {
+			gotoSeatRes(item) {
 				this.$router.push({
-					path: "/seatRes",
-					params: {}
+					name: "seatRes",
+					params: { title: item.value }
 				});
 			}
 		}
@@ -38,12 +39,11 @@
 <style scoped>
 	#floor {
 		width: 100%;
-		height: 100%;
 		background-color: #cccccc;
 	}
 	.maincontain {
 		max-width: 1100px;
-		height: calc(100% - 144px);
+		min-height: calc(100vh - 144px);
 		margin: 0 auto;
 		display: flex;
 		flex-wrap: wrap;
@@ -56,9 +56,19 @@
 		border: 2px solid #000;
 		border-radius: 15px;
 		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	.item:hover {
 		cursor: pointer;
 		box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.6);
+	}
+	.mask {
+		width: 42px;
+		height: 260px;
+		font-size: 40px;
+		font-weight: 700;
+		position: absolute;
 	}
 </style>
