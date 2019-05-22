@@ -4,7 +4,7 @@
 		<div class="maincontain">
 			<el-card class="box_card">
 				<div class="imgBox">
-					<img src="../../assets/images/custom.png">
+					<img src="../../assets/images/custom.png" />
 				</div>
 				<h2>个人信息</h2>
 				<div class="form">
@@ -32,50 +32,50 @@
 </template>
 
 <script>
-	import vheader from "../common/header";
-	import vfooter from "../common/footer";
-	export default {
-		components: { vheader, vfooter },
-		data() {
-			return {};
-		}
-	};
+import vheader from "../common/header";
+import vfooter from "../common/footer";
+export default {
+	components: { vheader, vfooter },
+	data() {
+		return {};
+	}
+};
 </script>
 
 <style scoped>
-	#userInfo {
-		width: 100%;
-		background-color: #cccccc;
-	}
-	.maincontain {
-		max-width: 1100px;
-		min-height: calc(100vh - 144px);
-		margin: 0 auto;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		align-items: center;
-	}
-	.box_card {
-		width: 500px;
-		height: 550px;
-		background: linear-gradient(to left, #2f49ff, #acb2fd);
-		display: flex;
-		justify-content: center;
-	}
-	.box_card h2 {
-		text-align: center;
-	}
-	.imgBox {
-		display: flex;
-		justify-content: center;
-	}
-	.form {
-		width: 500px;
-	}
+#userInfo {
+	width: 100%;
+	background-color: #cccccc;
+}
+.maincontain {
+	max-width: 1100px;
+	min-height: calc(100vh - 144px);
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+.box_card {
+	width: 500px;
+	height: 550px;
+	background: linear-gradient(to left, #2f49ff, #acb2fd);
+	display: flex;
+	justify-content: center;
+}
+.box_card h2 {
+	text-align: center;
+}
+.imgBox {
+	display: flex;
+	justify-content: center;
+}
+.form {
+	width: 500px;
+}
 </style>
 <style>
-	.el-card {
-		border: none;
-	}
+.el-card {
+	border: none;
+}
 </style>

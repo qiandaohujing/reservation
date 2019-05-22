@@ -39,6 +39,20 @@ export function login(data) {
 }
 
 /**
+ * @description logout
+ * @description url=/logout
+ * 
+ * @returns {boolean}
+ */
+export function logOut() {
+  const url = `${baseURL}/logOut`
+  return request({
+    url,
+    method: 'POST',
+  })
+}
+
+/**
  * @description modify
  * @description url=/modify
  * @param {} data.studentNum
