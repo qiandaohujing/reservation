@@ -4,6 +4,7 @@
 
 		<div class="maincontain">
 			<div class="item" v-for="(item, index) in seatList" :key="index" @click="seatReservation(item)">
+				<img src="../../assets/images/seat.png">
 				<div
 					class="mask"
 					:style="{
@@ -12,7 +13,6 @@
 				>
 					<span class="numberSigh">{{ item.index }}</span>
 				</div>
-				<img src="../../assets/images/seat.png">
 			</div>
 		</div>
 
@@ -40,7 +40,8 @@
 			</div>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="showExist = false">取 消</el-button>
-				<el-button type="primary" @click="checkAgain">预 约</el-button>
+				<el-button type="primary" @click="checkAgain" v-if="adminAuth">预 约</el-button>
+				<el-button type="danger" @click="checkAgain" v-else="adminAuth">锁 定</el-button>
 			</span>
 		</el-dialog>
 
@@ -67,33 +68,40 @@
 			return {
 				title: "",
 				seatNum: "",
+				adminAuth: 0,
 				showGone: false,
 				showExist: false,
 				checkTwice: false,
 				seatList: [
 					{
 						status: 1,
-						index: 1
+						index: 1,
+						lock: false
 					},
 					{
 						status: 1,
-						index: 2
+						index: 2,
+						lock: false
 					},
 					{
 						status: 1,
-						index: 3
+						index: 3,
+						lock: false
 					},
 					{
 						status: 0,
-						index: 4
+						index: 4,
+						lock: false
 					},
 					{
 						status: 0,
-						index: 5
+						index: 5,
+						lock: true
 					},
 					{
 						status: 0,
-						index: 6
+						index: 6,
+						lock: true
 					}
 				]
 			};
@@ -153,6 +161,7 @@
 		height: 224px;
 		border-radius: 10px;
 		position: absolute;
+		margin-top: -224px;
 		z-index: 100;
 	}
 	.numberSigh {

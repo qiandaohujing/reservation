@@ -3,6 +3,7 @@
 		<vheader></vheader>
 		<div class="maincontain">
 			<div class="item" v-for="(item, index) in imgList" :key="index" @click="roomReservation(item)">
+				<img src="../../assets/images/room.png">
 				<div
 					class="mask"
 					:style="{
@@ -10,7 +11,11 @@
 					}"
 				></div>
 				<div class="title">{{item.value}}</div>
-				<img src="../../assets/images/room.png">
+				<img
+					v-if="item.lock"
+					src="../../assets/images/lock.png"
+					style="margin-left:-350px;width:350px;height:350px;opacity: 0.2"
+				>
 			</div>
 		</div>
 		<vfooter></vfooter>
@@ -35,7 +40,8 @@
 			</div>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="showExist = false">取 消</el-button>
-				<el-button type="primary" @click="checkAgain">预 约</el-button>
+				<el-button type="primary" @click="checkAgain" v-if="adminAuth">预 约</el-button>
+				<el-button type="danger" @click="checkAgain()" v-else="adminAuth">{{date}}</el-button>
 			</span>
 		</el-dialog>
 
@@ -62,12 +68,14 @@
 			return {
 				showGone: false,
 				showExist: false,
+				adminAuth: 0,
+				date: "",
 				checkTwice: false,
 				roomNum: "",
 				imgList: [
-					{ value: "一号会议室", num: 1, status: 1 },
-					{ value: "二号会议室", num: 2, status: 0 },
-					{ value: "三号会议室", num: 3, status: 0 }
+					{ value: "一号会议室", num: 1, status: 1, lock: false },
+					{ value: "二号会议室", num: 2, status: 0, lock: false },
+					{ value: "三号会议室", num: 3, status: 0, lock: true }
 				]
 			};
 		},
@@ -91,6 +99,11 @@
 				} else {
 					this.roomNum = item.num;
 					this.showExist = true;
+				}
+				if (item.lock) {
+					this.date = "取消锁定";
+				} else {
+					this.date = "锁 定";
 				}
 			},
 			checkAgain() {
