@@ -40,8 +40,7 @@
 			</div>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="showExist = false">取 消</el-button>
-				<el-button type="primary" @click="checkAgain" v-if="adminAuth">预 约</el-button>
-				<el-button type="danger" @click="checkAgain" v-else="adminAuth">锁 定</el-button>
+				<el-button type="primary" @click="checkAgain">预 约</el-button>
 			</span>
 		</el-dialog>
 
@@ -68,7 +67,6 @@
 			return {
 				title: "",
 				seatNum: "",
-				adminAuth: 0,
 				showGone: false,
 				showExist: false,
 				checkTwice: false,

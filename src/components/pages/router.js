@@ -5,6 +5,7 @@ import floor from "./floor"
 import userInfo from "./userInfo"
 import seatRes from "./seatRes"
 import roomRes from "./roomRes"
+import manage from "./manage"
 import {
   BaseRouter
 } from "@/router/base"
@@ -17,6 +18,7 @@ const userRouter = [
   new BaseRouter('/userInfo', userInfo, 'userInfo', '用户信息'),
   new BaseRouter('/seatRes', seatRes, 'seatRes', '座位预约'),
   new BaseRouter('/roomRes', roomRes, 'roomRes', '自习室预约'),
+  new BaseRouter('/manage', manage, 'manage', '学生管理'),
 ]
 
 export default userRouter

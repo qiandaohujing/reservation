@@ -75,7 +75,7 @@
 			}
 		},
 		created() {
-			console.log("route:", this.$route.name);
+			// console.log("route:", this.$route.name);
 		}
 	};
 </script>

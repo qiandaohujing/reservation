@@ -11,11 +11,6 @@
 					}"
 				></div>
 				<div class="title">{{item.value}}</div>
-				<img
-					v-if="item.lock"
-					src="../../assets/images/lock.png"
-					style="margin-left:-350px;width:350px;height:350px;opacity: 0.2"
-				>
 			</div>
 		</div>
 		<vfooter></vfooter>
@@ -40,8 +35,7 @@
 			</div>
 			<span slot="footer" class="dialog-footer">
 				<el-button @click="showExist = false">取 消</el-button>
-				<el-button type="primary" @click="checkAgain" v-if="adminAuth">预 约</el-button>
-				<el-button type="danger" @click="checkAgain()" v-else="adminAuth">{{date}}</el-button>
+				<el-button type="primary" @click="checkAgain">预 约</el-button>
 			</span>
 		</el-dialog>
 
@@ -68,7 +62,6 @@
 			return {
 				showGone: false,
 				showExist: false,
-				adminAuth: 0,
 				date: "",
 				checkTwice: false,
 				roomNum: "",

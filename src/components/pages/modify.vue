@@ -70,11 +70,11 @@
 								setToken(res.result.userDo.token);
 								that.$router.push("/");
 							} else {
-								that.$message.error("账号密码错误");
+								that.$message.error("密码修改失败");
 							}
 						});
 					} else {
-						that.$message.error("账号密码错误");
+						that.$message.error("信息输入有误");
 						return false;
 					}
 				});

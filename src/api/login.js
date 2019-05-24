@@ -4,14 +4,14 @@ const baseURL = '/api';
 /**
  * @description register
  * @description url=/register
- * @param {} data.studentID
+ * @param {} data.studentNum
  * @param {} data.studentName
  * @param {} data.studentPassword
  * 
  * @returns {boolean}
  */
 export function register(data) {
-  const url = `${baseURL}/upload`
+  const url = `${baseURL}/register`
   return request({
     url,
     data,
@@ -29,7 +29,7 @@ export function register(data) {
  * @returns {boolean}
  */
 export function login(data) {
-  const url = `${baseURL}/upload`
+  const url = `${baseURL}/login`
   return request({
     url,
     data,
@@ -45,7 +45,7 @@ export function login(data) {
  * @returns {boolean}
  */
 export function logOut() {
-  const url = `${baseURL}/logOut`
+  const url = `${baseURL}/logout`
   return request({
     url,
     method: 'POST',
@@ -62,11 +62,28 @@ export function logOut() {
  * @returns {boolean}
  */
 export function modify(data) {
-  const url = `${baseURL}/upload`
+  const url = `${baseURL}/modify`
   return request({
     url,
     data,
     method: 'POST',
+    loading: true
+  })
+}
+
+/**
+ * @description manage
+ * @description url=/manage
+ * @param {} data.AdminPassword
+ * 
+ * @returns {boolean}
+ */
+export function manage(data) {
+  const url = `${baseURL}/manage`
+  return request({
+    url,
+    data,
+    mothod: 'POST',
     loading: true
   })
 }
