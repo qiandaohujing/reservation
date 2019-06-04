@@ -28,6 +28,7 @@ export default {
 	methods: {
 		gotoSeatRes(item) {
 			this.$router.push({
+				path: "/seatRes",
 				name: "seatRes",
 				params: { title: item.value, libLevel: item.libLevel }
 			});

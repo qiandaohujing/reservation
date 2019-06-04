@@ -119,10 +119,17 @@ export default {
 		showDesk() {
 			showDesk().then(res => {
 				console.log("res:", res);
-				let seatArr = res.result.filter(item => {
-					item.libLevel == this.libLevel;
-				});
-				this.seatList = JSON.parse(JSON.stringify(seatArr));
+				console.log("libLevel:", this.libLevel);
+				for (let i = 0; i < res.result.length; i++) {
+					const element = res.result[i];
+					if (element.libLevel == this.libLevel) {
+						this.seatList.push(element);
+					}
+				}
+				// let seatArr = res.result.filter(item => {
+				// 	item.libLevel == this.libLevel;
+				// });
+				// this.seatList = JSON.parse(JSON.stringify(seatArr));
 				console.log("seatList:", this.seatList);
 			});
 		},
