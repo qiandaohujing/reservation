@@ -61,6 +61,7 @@
 	import vheader from "../common/header";
 	import vfooter from "../common/footer";
 	import moment from "moment";
+	import { showDesk } from "../../api/reservation";
 	export default {
 		components: { vheader, vfooter },
 		data() {
@@ -105,9 +106,15 @@
 			};
 		},
 		created() {
+			this.showDesk();
 			this.title = this.$route.params.title;
 		},
 		methods: {
+			showDesk() {
+				showDesk().then(res => {
+					console.log("res:", res);
+				});
+			},
 			handleClose() {
 				setTimeout(() => {
 					this.dialogVisible = false;

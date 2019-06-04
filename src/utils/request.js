@@ -10,8 +10,8 @@ const service = axios.create({
 //request interceptor
 service.interceptors.request.use(
   config => {
-    console.log("config:", config);
-    console.log("getToken:", getToken());
+    // console.log("config:", config);
+    // console.log("getToken:", getToken());
     if (getToken()) {
       config.headers['token'] = getToken()
     }

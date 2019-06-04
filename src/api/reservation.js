@@ -61,11 +61,26 @@ export function changeDate(data) {
  * 
  * @returns {json}
  */
-export function getDate(data) {
+export function getDate(params) {
   const url = `${baseURL}/getDate`
   return request({
     url,
-    data,
+    params,
+    method: 'GET',
+    loading: true
+  })
+}
+
+/**
+ * @description showDesk
+ * @description url=/showDesk
+ * 
+ * @returns {json}
+ */
+export function showDesk() {
+  const url = `${baseURL}/showDesk`
+  return request({
+    url,
     method: 'GET',
     loading: true
   })
