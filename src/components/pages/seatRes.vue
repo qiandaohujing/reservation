@@ -107,8 +107,7 @@ export default {
 				// 	index: 6,
 				// 	lock: true
 				// }
-			],
-			result: []
+			]
 		};
 	},
 	created() {
@@ -120,17 +119,19 @@ export default {
 		showDesk() {
 			showDesk().then(res => {
 				console.log("res:", res);
-				console.log("libLevel:", this.libLevel);
-				this.result = JSON.parse(JSON.stringify(res.result));
-				this.seatList = this.result.filter(item => {
-					item.libLevel == this.libLevel;
-				});
-				// for (let i = 0; i < res.result.length; i++) {
-				// 	const element = res.result[i];
-				// 	if (element.libLevel == this.libLevel) {
-				// 		this.seatList.push(element);
-				// 	}
-				// }
+				// this.seatList = this.result.filter(item => {
+				// 	console.log("item.libLevel:", item.libLevel);
+				// 	console.log("this.libLevel:", this.libLevel);
+				// 	item.libLevel == this.libLevel;
+				// });
+				for (let i = 0; i < res.result.length; i++) {
+					const element = res.result[i];
+					console.log("element.libLevel:", element.libLevel);
+					console.log("this.libLevel:", this.libLevel);
+					if (element.libLevel == this.libLevel) {
+						this.seatList.push(element);
+					}
+				}
 				// let seatArr = res.result.filter(item => {
 				// 	item.libLevel == this.libLevel;
 				// });

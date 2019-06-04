@@ -19,9 +19,9 @@ export default {
 	data() {
 		return {
 			imgList: [
-				{ value: "二楼自习区", libLevel: 1 },
-				{ value: "三楼自习区", libLevel: 2 },
-				{ value: "四楼自习区", libLevel: 3 }
+				{ value: "二楼自习区", libLevel: 2 },
+				{ value: "三楼自习区", libLevel: 3 },
+				{ value: "四楼自习区", libLevel: 4 }
 			]
 		};
 	},
