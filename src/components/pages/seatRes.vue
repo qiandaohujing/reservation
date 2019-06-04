@@ -111,17 +111,19 @@ export default {
 		};
 	},
 	created() {
+		this.title = this.$route.params.title;
+		this.libLevel = this.$route.params.libLevel;
 		this.showDesk();
 	},
 	methods: {
-		async showDesk() {
-			this.title = this.$route.params.title;
-			await showDesk().then(res => {
+		showDesk() {
+			showDesk().then(res => {
 				console.log("res:", res);
 				let seatArr = res.result.filter(item => {
-					item.libLevel == this.$route.params.libLevel;
+					item.libLevel == this.libLevel;
 				});
 				this.seatList = JSON.parse(JSON.stringify(seatArr));
+				console.log("seatList:", this.seatList);
 			});
 		},
 		handleClose() {
