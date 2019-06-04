@@ -9,7 +9,7 @@ Vue.use(ElementUI, { size: 'small' });
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
-  const role = JSON.parse(localStorage.getItem('user'))
+  // const role = JSON.parse(localStorage.getItem('user'))
   if (!getToken() && to.path !== '/login') {
     next('/login')
   }
