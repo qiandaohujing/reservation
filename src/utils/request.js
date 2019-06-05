@@ -13,7 +13,7 @@ service.interceptors.request.use(
     // console.log("config:", config);
     // console.log("getToken:", getToken());
     if (getToken()) {
-      config.headers['token'] = getToken()
+      config.headers['Cookie'] = "token" + "=" + getToken()
     }
     return config
   },

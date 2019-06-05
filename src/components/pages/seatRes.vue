@@ -171,8 +171,7 @@
 				const data = {
 					libLevel: this.libLevel,
 					deskNum: this.seatNum,
-					dateBegin: Date.parse(new Date()),
-					dateEnd: Date.parse(new Date())
+					dateTime: Date.parse(new Date())
 				};
 				console.log("data:", data);
 				date(data).then(res => {
